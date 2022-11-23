@@ -6,27 +6,28 @@
 
         static void Main(string[] args)
         {
-            double avstånd, drivmedelspris; // drivmedelskostnad Liter och Mil
-            double milförbrukning;
-            double kördamil, maxmil, tidigaremil; //service kostnad
+            double avstånd, drivmedelspris, milförbrukning;// drivmedelskostnad Liter och Mil
+            double kördamil, serviceintervall, servicepris; //service kostnad
             double livslängd, nypris; //däcklivslängd
-            double kostnad, pris, servicepris;
+            double kostnad, pris;
+            int passagerare = 2;
             
-            
-            avstånd = 8.8; drivmedelspris = 27; milförbrukning = 0.65;
+            avstånd = 8.88; drivmedelspris = 24; milförbrukning = 0.65;
 
-            kördamil = 10; maxmil = 150; tidigaremil = 100; servicepris = 5000;
+            kördamil = 8.88; serviceintervall = 3000; servicepris = 3500;
 
             livslängd = 4250; nypris = 5000;
+
             double driftkostnad = avstånd * drivmedelspris * milförbrukning;
-            double servicekostnad = (kördamil / maxmil) * servicepris;
+            double servicekostnad = (kördamil / serviceintervall) * servicepris;
             double däckkostnad = (kördamil / livslängd) * nypris;
             double totalkostnad = driftkostnad + servicekostnad + däckkostnad;
-            totalkostnad = totalkostnad / 2;
-            Console.WriteLine(avstånd * drivmedelspris * milförbrukning);
-            Console.WriteLine((kördamil/maxmil)* servicepris);
-            Console.WriteLine((kördamil/livslängd)*nypris);
-            Console.WriteLine(totalkostnad);
+            totalkostnad = totalkostnad / passagerare;
+
+            Console.WriteLine("drivmedelskostnad: " + driftkostnad);
+            Console.WriteLine("Servicekostnad: " + servicekostnad);
+            Console.WriteLine("Däckslitage: " + däckkostnad);
+            Console.WriteLine("Totala summan: " + totalkostnad);
             Console.WriteLine("Hello, World!");
             
             
